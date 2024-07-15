@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <app-listar-usuarios
+        [usuarios]="listUser$"
+        (editarUsuario)="onEditarUsuario($event)"
+        (excluirUsuario)="onExcluirUsuario($event)"
+      ></app-listar-usuarios>
+      <hr />
+      <app-cadastrar-usuarios
+        (cadastrarUsuario)="
+          valueEdit === null || valueEdit === undefined
+            ? cadastro($event)
+            : editar($event)
+        "
+      ></app-cadastrar-usuarios>
+    </div>
+  </div>
+</div>
+>

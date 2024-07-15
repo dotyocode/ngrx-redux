@@ -1,0 +1,89 @@
+<div class="container">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="id">Id</label>
+      <input
+        type="number"
+        class="form-control"
+        id="id"
+        formControlName="id"
+        placeholder="Digite o seu Id"
+      />
+      <div
+        *ngIf="
+          formulario.get('id')?.invalid &&
+          (formulario.get('id')?.dirty || formulario.get('id')?.touched)
+        "
+        class="invalid-feedback"
+      >
+        Id é obrigatório.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nome"
+        formControlName="nome"
+        placeholder="Digite o seu nome"
+      />
+      <div
+        *ngIf="
+          formulario.get('nome')?.invalid &&
+          (formulario.get('nome')?.dirty || formulario.get('nome')?.touched)
+        "
+        class="invalid-feedback"
+      >
+        Nome é obrigatório.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="idade">Idade</label>
+      <input
+        type="number"
+        class="form-control"
+        id="idade"
+        formControlName="idade"
+        placeholder="Digite a sua idade"
+      />
+      <div
+        *ngIf="
+          formulario.get('idade')?.invalid &&
+          (formulario.get('idade')?.dirty || formulario.get('idade')?.touched)
+        "
+        class="invalid-feedback"
+      >
+        Idade é obrigatória.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="perfil">Perfil</label>
+      <input
+        type="text"
+        class="form-control"
+        id="perfil"
+        formControlName="perfil"
+        placeholder="Digite o perfil"
+      />
+      <div
+        *ngIf="
+          formulario.get('perfil')?.invalid &&
+          (formulario.get('perfil')?.dirty || formulario.get('perfil')?.touched)
+        "
+        class="invalid-feedback"
+      >
+        Perfil é obrigatório.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">
+      {{
+        userValue === null || userValue === undefined ? "Cadastrar" : "Editar"
+      }}
+    </button>
+  </form>
+</div>
